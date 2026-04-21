@@ -1,0 +1,30 @@
+{
+  "levels_handler": {
+    "levels_count": 5,
+    "levels_diff_treshold": 0.01,
+    "enable_mirror_check": true,
+    "scaled_keys": [
+      "levels_diff_treshold"
+    ]
+  },
+  "direction_guesser": {
+    "method": "linear",
+    "linear": {
+      "min_candles": 20
+    },
+    "quadratic": {
+      "min_candles": 30
+    },
+    "candle": {
+      "min_candles": 10
+    }
+  },
+  "trade_maker": {
+    "tp_level_index": 3,
+    "sl_level_index": -3,
+    "fallback_when_missing": "percent",
+    "fallback_percent": 0.01,
+    "level_padding_pct": 0.0,
+    "max_duration": {"value": 7, "unit": "days"}
+  }
+}

@@ -1,0 +1,39 @@
+# Environment & credentials
+.env
+keys.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Logs
+*.log
+pipeline.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local dev history
+.history/
+
+# Data files (too large for git — place in input_data/ locally)
+input_data/
+S_sources/
+
+# Test outputs
+O_output_results/

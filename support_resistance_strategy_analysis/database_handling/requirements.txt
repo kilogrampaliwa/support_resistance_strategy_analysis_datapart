@@ -1,0 +1,8 @@
+# database_handling/requirements.txt
+
+# Core dependencies
+psycopg2-binary>=2.9.0  # PostgreSQL adapter
+pandas>=2.0.0           # Data manipulation
+
+# Optional (for examples)
+matplotlib>=3.5.0       # For charts in analytics.py

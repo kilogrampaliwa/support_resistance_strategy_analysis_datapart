@@ -1,0 +1,20 @@
+{
+  "H1": {
+    "back_window_size": 336,
+    "pivot_window": 48,
+    "strong_freq_bin": 0.00015,
+    "strong_freq_threshold": 1,
+    "simple_freq_bin": 0.0005,
+    "simple_freq_threshold": 5,
+    "merge_margin": 0.002
+  },
+  "D1": {
+    "back_window_size": 365,
+    "pivot_window": 61,
+    "strong_freq_bin": 0.002,
+    "strong_freq_threshold": 1,
+    "simple_freq_bin": 0.003,
+    "simple_freq_threshold": 5,
+    "merge_margin": 0.01
+  }
+}

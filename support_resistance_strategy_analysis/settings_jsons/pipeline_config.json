@@ -1,0 +1,101 @@
+{
+  "description": "Forex Analysis Pipeline Configuration with Backtesting",
+  "version": "2.0.0",
+  
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "user": "postgres",
+    "password": "${POSTGRES_PASSWORD}",
+    "database": "forex_analysis",
+    "pool_size": 5,
+    "max_overflow": 10,
+    "pool_timeout": 30,
+    "echo": false
+  },
+  
+  "backtesting": {
+    "enabled": true,
+    "mode": "full_history",
+    "start_date": null,
+    "end_date": null,
+    "timeframe_rules": {
+      "D1": {
+        "step": "1D",
+        "description": "Daily - analyze every day"
+      },
+      "W1": {
+        "step": "1W",
+        "description": "Weekly - analyze every week"
+      },
+      "MN": {
+        "step": "1M",
+        "description": "Monthly - analyze every month"
+      },
+      "H1": {
+        "step": "1H",
+        "time_filter": "wall_street_open",
+        "description": "Hourly - analyze at Wall Street open (14:30 UTC / 09:30 EST)"
+      },
+      "M5": {
+        "step": "30min",
+        "time_filter": "wall_street_open",
+        "description": "5-minute - analyze 30min after Wall Street open"
+      },
+      "M15": {
+        "step": "30min",
+        "time_filter": "wall_street_open",
+        "description": "15-minute - analyze 30min after Wall Street open"
+      }
+    },
+    "wall_street_open": {
+      "utc_hour": 14,
+      "utc_minute": 30,
+      "offset_minutes": 30,
+      "description": "Wall Street opens at 09:30 EST (14:30 UTC), analyze 30min after (15:00 UTC / 10:00 EST)"
+    },
+    "min_history_bars": 200,
+    "skip_weekends": true
+  },
+  
+  "analysis": {
+    "timeframe": "H1",
+    "direction_method": "linear",
+    "level_finder_settings_path": "settings_jsons/level_finder_settings.json",
+    "trade_maker_settings_path": "settings_jsons/trade_maker_settings.json"
+  },
+  
+  "direction": {
+    "method": "linear",
+    "available_methods": ["linear", "quadratic", "candle"],
+    "lookback": 20,
+    "description": "Method for trend direction detection"
+  },
+  
+  "processing": {
+    "batch_size": 10,
+    "parallel": false,
+    "continue_on_error": true,
+    "save_to_database": true
+  },
+  
+  "logging": {
+    "level": "INFO",
+    "file": "pipeline.log",
+    "console": true,
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  },
+  
+  "input": {
+    "directory": "input_data",
+    "file_patterns": ["*.csv", "*.txt"],
+    "encoding": "utf-8"
+  },
+  
+  "output": {
+    "directory": "output_results",
+    "save_csv": true,
+    "save_json": true,
+    "save_summary": true
+  }
+}

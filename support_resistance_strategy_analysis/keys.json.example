@@ -1,0 +1,10 @@
+{
+    "OPEN_ROUTER": {
+        "name": "OpenRouterKey",
+        "key": "sk-or-v1-your-openrouter-api-key-here"
+    },
+    "AI_DEVS": {
+        "name": "AIDevsKey",
+        "key": "your-ai-devs-api-key-here"
+    }
+}
